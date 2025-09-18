@@ -1,5 +1,5 @@
 [
-  { "name": "", "enter": "⬅", "exit": "➡", "notes": "" },
+  { "name": "sd", "enter": "⬅", "exit": "➡", "notes": "sd" },
   { "name": "Singer 1", "enter": "➡️", "exit": "⬅️", "notes": "Solo performance" },
   { "name": "Comedy Skit", "enter": "⬅️", "exit": "➡️", "notes": "Props needed" },
   { "name": "Finale", "enter": "➡️", "exit": "⬅️", "notes": "All cast on stage" }
