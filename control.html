@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Control Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <img src="assets/logo.png" class="logo" alt="Event Logo">
+  <h1>Stage Manager Control</h1>
+
+  <div id="auth">
+    <p>Enter Password:</p>
+    <input type="password" id="password">
+    <button onclick="login()">Login</button>
+  </div>
+
+  <div id="control" style="display:none;">
+    <div id="current"></div>
+    <button onclick="prevAct()">⬅️ Back</button>
+    <button onclick="nextAct()">Next ➡️</button>
+    <button onclick="undoAct()">Undo</button>
+    <button onclick="toggleLock()">🔒 Lock/Unlock</button>
+    <input type="text" id="search" placeholder="Search act..." oninput="searchActs()">
+    <h2>Run Order</h2>
+    <ul id="cueList"></ul>
+    <button onclick="exportCSV()">Export Run Sheet (CSV)</button>
+  </div>
+
+  <script src="script-control.js"></script>
+</body>
+</html>
