@@ -3,29 +3,30 @@
 <head>
   <title>Control Panel</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script-control.js" defer></script>
 </head>
 <body>
-  <img src="assets/logo.png" class="logo" alt="Event Logo">
-  <h1>Stage Manager Control</h1>
+  <header>
+    <img src="assets/logo.png" class="logo" alt="Event Logo">
+    <h1>Control Panel</h1>
+  </header>
 
-  <div id="auth">
-    <p>Enter Password:</p>
-    <input type="password" id="password">
-    <button onclick="login()">Login</button>
-  </div>
+  <section id="controls">
+    <div id="currentAct"></div>
+    <div class="btn-row">
+      <button onclick="prevAct()">⬅️ Back</button>
+      <button id="nextBtn" onclick="nextAct()">Next ➡️</button>
+      <button onclick="undoAct()">↩️ Undo</button>
+    </div>
+    <label>
+      <input type="checkbox" id="bypassConfirm">
+      Bypass confirmation for Next Act
+    </label>
+  </section>
 
-  <div id="control" style="display:none;">
-    <div id="current"></div>
-    <button onclick="prevAct()">⬅️ Back</button>
-    <button onclick="nextAct()">Next ➡️</button>
-    <button onclick="undoAct()">Undo</button>
-    <button onclick="toggleLock()">🔒 Lock/Unlock</button>
-    <input type="text" id="search" placeholder="Search act..." oninput="searchActs()">
+  <section>
     <h2>Run Order</h2>
-    <ul id="cueList"></ul>
-    <button onclick="exportCSV()">Export Run Sheet (CSV)</button>
-  </div>
-
-  <script src="script-control.js"></script>
+    <ul id="cueList" class="draggable-list"></ul>
+  </section>
 </body>
 </html>
