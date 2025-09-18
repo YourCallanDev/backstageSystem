@@ -11,14 +11,14 @@
     <h1>Control Panel</h1>
   </header>
 
-  <!-- Show selection UI -->
+  <!-- Show selection -->
   <section id="showSelect">
     <h2>Select Show</h2>
     <select id="showDropdown"></select>
     <button onclick="loadShow()">Load Show</button>
   </section>
 
-  <!-- Main control panel (hidden until show is loaded) -->
+  <!-- Controls -->
   <section id="controls" style="display:none;">
     <div id="currentAct"></div>
     <div class="btn-row">
@@ -30,6 +30,8 @@
       <input type="checkbox" id="bypassConfirm">
       Bypass confirmation for Next Act
     </label>
+    <br><br>
+    <button onclick="pushToDisplays()">📡 Push to Displays</button>
 
     <h2>Run Order</h2>
     <ul id="cueList" class="draggable-list"></ul>
