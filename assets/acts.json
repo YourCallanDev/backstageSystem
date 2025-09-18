@@ -1,5 +1,5 @@
 [
-  { "act": "Opening Dance", "enter": "⬅️ Left", "exit": "➡️ Right", "notes": "All dancers need wireless mics", "tag": "Dance" },
+  { "act": "", "enter": "", "exit": "", "notes": "", "tag": "" },
   { "act": "Comedy Skit", "enter": "➡️ Right", "exit": "➡️ Right", "notes": "Mic stand center stage", "tag": "Comedy" },
   { "act": "Choir", "enter": "⬅️ Left", "exit": "⬅️ Left", "notes": "12 choir mics needed", "tag": "Music" },
   { "act": "Magic Act", "enter": "➡️ Right", "exit": "⬅️ Left", "notes": "Table and props pre-set", "tag": "Special" }
