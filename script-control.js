@@ -4,11 +4,13 @@ const cueList = document.getElementById("cueList");
 const currentActDiv = document.getElementById("currentAct");
 const showDropdown = document.getElementById("showDropdown");
 
+// Populate dropdown from shows.json
 async function populateShows() {
   try {
     const res = await fetch("assets/shows.json");
     const shows = await res.json();
 
+    showDropdown.innerHTML = "<option value=''>-- Select Show --</option>";
     for (const [name, path] of Object.entries(shows)) {
       const opt = document.createElement("option");
       opt.value = path;
@@ -39,6 +41,12 @@ async function loadShow() {
   }
 }
 
+function pushToDisplays() {
+  localStorage.setItem("acts", JSON.stringify(acts));
+  localStorage.setItem("currentIndex", currentIndex);
+  localStorage.setItem("displayUpdate", Date.now());
+}
+
 function renderCueList() {
   cueList.innerHTML = "";
   acts.forEach((act, i) => {
@@ -52,15 +60,13 @@ function renderCueList() {
 
 function renderCurrent() {
   currentActDiv.textContent = `Now: ${acts[currentIndex]?.name || "None"}`;
-  localStorage.setItem("acts", JSON.stringify(acts));
-  localStorage.setItem("currentIndex", currentIndex);
-  localStorage.setItem("displayUpdate", Date.now());
 }
 
 function prevAct() {
   if (currentIndex > 0) {
     currentIndex--;
     renderCurrent();
+    pushToDisplays();
   }
 }
 
@@ -71,6 +77,7 @@ function nextAct() {
   if (currentIndex < acts.length - 1) {
     currentIndex++;
     renderCurrent();
+    pushToDisplays();
   }
 }
 
@@ -78,10 +85,11 @@ function undoAct() {
   if (currentIndex > 0) {
     currentIndex--;
     renderCurrent();
+    pushToDisplays();
   }
 }
 
-// Drag & drop reordering
+// Drag & drop
 let dragStartIndex;
 cueList.addEventListener("dragstart", e => {
   dragStartIndex = +e.target.dataset.index;
@@ -93,7 +101,8 @@ cueList.addEventListener("drop", e => {
   acts.splice(dragEndIndex, 0, item);
   renderCueList();
   renderCurrent();
+  pushToDisplays();
 });
 
-// Populate dropdown on load
+// Init
 populateShows();
